@@ -152,3 +152,254 @@ Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 16:57:56) 
 Rendering photos/upload_photo
   [4;36;1mAlbum Columns (9.2ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
 Completed in 38ms (View: 17, DB: 8) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 17:04:23) [POST]
+  Parameters: {"photo"=>{"name"=>"", "album"=>"<option value=\"1\">Test</option>", "file"=>""}, "authenticity_token"=>"c6105da4dbee26f9f1e16903d14a30583b35fef7", "add_album"=>"Add Ablum"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbum Load (0.6ms)[0m   [0mSELECT * FROM `albums` ORDER BY title[0m
+  [4;36;1mPhoto Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+
+
+ActiveRecord::AssociationTypeMismatch (Album(#19512040) expected, got String(#113650)):
+    /vendor/rails/activerecord/lib/active_record/associations/association_proxy.rb:256:in `raise_on_type_mismatch'
+    /vendor/rails/activerecord/lib/active_record/associations/belongs_to_association.rb:22:in `replace'
+    /vendor/rails/activerecord/lib/active_record/associations.rb:1276:in `album='
+    /vendor/rails/activerecord/lib/active_record/base.rb:2587:in `send'
+    /vendor/rails/activerecord/lib/active_record/base.rb:2587:in `attributes='
+    /vendor/rails/activerecord/lib/active_record/base.rb:2583:in `each'
+    /vendor/rails/activerecord/lib/active_record/base.rb:2583:in `attributes='
+    /vendor/rails/activerecord/lib/active_record/base.rb:2283:in `initialize'
+    /app/controllers/photos_controller.rb:6:in `new'
+    /app/controllers/photos_controller.rb:6:in `upload_photo'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+    -e:2:in `load'
+    -e:2
+
+Rendered /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (36.3ms)
+Rendered /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (1.0ms)
+Rendering /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 17:04:27) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbum Load (0.5ms)[0m   [0mSELECT * FROM `albums` ORDER BY title[0m
+  [4;36;1mPhoto Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+Rendering photos/upload_photo
+  [4;35;1mAlbum Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 24ms (View: 9, DB: 3) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 17:04:32) [POST]
+  Parameters: {"photo"=>{"name"=>"", "album"=>"1", "file"=>""}, "authenticity_token"=>"c6105da4dbee26f9f1e16903d14a30583b35fef7", "add_album"=>"Add Ablum"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAlbum Load (0.5ms)[0m   [0;1mSELECT * FROM `albums` ORDER BY title[0m
+  [4;35;1mPhoto Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+
+
+ActiveRecord::AssociationTypeMismatch (Album(#18683520) expected, got String(#113650)):
+    /vendor/rails/activerecord/lib/active_record/associations/association_proxy.rb:256:in `raise_on_type_mismatch'
+    /vendor/rails/activerecord/lib/active_record/associations/belongs_to_association.rb:22:in `replace'
+    /vendor/rails/activerecord/lib/active_record/associations.rb:1276:in `album='
+    /vendor/rails/activerecord/lib/active_record/base.rb:2587:in `send'
+    /vendor/rails/activerecord/lib/active_record/base.rb:2587:in `attributes='
+    /vendor/rails/activerecord/lib/active_record/base.rb:2583:in `each'
+    /vendor/rails/activerecord/lib/active_record/base.rb:2583:in `attributes='
+    /vendor/rails/activerecord/lib/active_record/base.rb:2283:in `initialize'
+    /app/controllers/photos_controller.rb:6:in `new'
+    /app/controllers/photos_controller.rb:6:in `upload_photo'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+    -e:2:in `load'
+    -e:2
+
+Rendered /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (33.9ms)
+Rendered /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 17:07:29) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAlbum Load (0.5ms)[0m   [0;1mSELECT * FROM `albums` ORDER BY title[0m
+  [4;35;1mPhoto Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+Rendering photos/upload_photo
+  [4;36;1mAlbum Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Completed in 25ms (View: 11, DB: 3) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 17:07:31) [POST]
+  Parameters: {"photo"=>{"name"=>"", "album_id"=>"1", "file"=>""}, "authenticity_token"=>"c6105da4dbee26f9f1e16903d14a30583b35fef7", "add_album"=>"Add Ablum"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbum Load (0.5ms)[0m   [0mSELECT * FROM `albums` ORDER BY title[0m
+  [4;36;1mPhoto Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+Redirected to actionadd_albumcontrolleralbum
+Completed in 16ms (DB: 3) | 302 Found [http://localhost/photos/upload_photo]
+
+
+Processing AlbumController#add_album (for 127.0.0.1 at 2008-12-20 17:07:31) [GET]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbum Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Rendering album/add_album
+Completed in 19ms (View: 9, DB: 3) | 200 OK [http://localhost/album/add_album]
+
+
+Processing AlbumController#add_album (for 127.0.0.1 at 2008-12-20 17:07:37) [POST]
+  Parameters: {"commit"=>"Add Album", "authenticity_token"=>"c6105da4dbee26f9f1e16903d14a30583b35fef7", "album"=>{"title"=>"kiekjes"}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAlbum Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlbum Create (0.3ms)[0m   [0;1mINSERT INTO `albums` (`updated_at`, `title`, `parent_id`, `created_at`) VALUES('2008-12-20 16:07:37', 'kiekjes', NULL, '2008-12-20 16:07:37')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Redirected to actionupload_photocontrollerphotos
+Completed in 13ms (DB: 3) | 302 Found [http://localhost/album/add_album]
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 17:07:37) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAlbum Load (0.6ms)[0m   [0;1mSELECT * FROM `albums` ORDER BY title[0m
+  [4;35;1mPhoto Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+Rendering photos/upload_photo
+  [4;36;1mAlbum Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Completed in 24ms (View: 9, DB: 3) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 17:08:00) [POST]
+  Parameters: {"photo"=>{"name"=>"huisje", "album_id"=>"2", "file"=>#<File:/var/folders/M2/M2eltVzfEnmUWBzX-zP2gU+++TI/-Tmp-/CGI.6296.1>}, "commit"=>"Upload Photo", "authenticity_token"=>"c6105da4dbee26f9f1e16903d14a30583b35fef7"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbum Load (0.5ms)[0m   [0mSELECT * FROM `albums` ORDER BY title[0m
+  [4;36;1mPhoto Columns (3.2ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhoto Create (0.3ms)[0m   [0;1mINSERT INTO `photos` (`name`, `thumbnail`, `updated_at`, `extension`, `album_id`, `path`, `created_at`) VALUES('huisje', 0, '2008-12-20 16:08:00', 'jpg', 2, 'photos/200812201708009c.jpg', '2008-12-20 16:08:00')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Rendering photos/upload_photo
+  [4;36;1mAlbum Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Completed in 34ms (View: 8, DB: 6) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#display_photo (for 127.0.0.1 at 2008-12-20 17:08:05) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPhoto Load (0.5ms)[0m   [0mSELECT * FROM `photos` ORDER BY photos.id DESC LIMIT 1[0m
+Rendering photos/display_photo
+  [4;36;1mPhoto Columns (3.6ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+Completed in 26ms (View: 18, DB: 1) | 200 OK [http://localhost/photos/display_photo]
