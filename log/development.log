@@ -5226,3 +5226,34 @@ Processing PhotosController#display_photo (for 127.0.0.1 at 2008-12-20 15:16:08)
 Rendering photos/display_photo
   [4;35;1mPhoto Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
 Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/photos/display_photo]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePhotos (20081219221439)
+Migrating to CreateUsers (20081219222901)
+Migrating to CreateAlbums (20081220094519)
+Migrating to CreateComments (20081220094530)
+Migrating to CreateTags (20081220100704)
+Migrating to AlterPhotosAddName (20081220115825)
+Migrating to AlterPhotosAddExtension (20081220143023)
+  [4;36;1mSQL (19.8ms)[0m   [0;1mALTER TABLE `photos` ADD `extension` varchar(255)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20081220143023')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `albums`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `albums`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (5.8ms)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `photos`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `photos`[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mdescribe `tags`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `tags`[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mSHOW KEYS FROM `users`[0m
