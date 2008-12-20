@@ -1,0 +1,8 @@
+<%= link_to "Add User", :action => :add_user %>
+<table cellpadding="0" cellspacing="5px" border="0">
+<% for user in @users %>
+  <tr><td><%= "#{user.id}" %></td><td><%= "#{user.first_name}" %></td><td><%= "#{user.last_name}" %></td></tr>
+<% end %>
+</table>
+
+

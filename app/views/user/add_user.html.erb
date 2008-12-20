@@ -1,0 +1,7 @@
+<% form_for :user do |f| %>
+  <%= f.text_field :first_name, :size => 9 %>
+  <%= f.text_field :last_name, :size => 9 %>
+  <%= f.date_select :birth_date, :include_blank => true %>
+  <%= f.select :gender, [["M", 1],["V", 2]], :include_blank => true, :selected => @user.gender %>
+  <%= submit_tag "Save User" %>
+<% end %>

@@ -1,0 +1,10 @@
+
+<% form_tag({:action => :upload_photo}, :multipart => true) do %>
+    <br />
+    Name: <%= text_field_tag :photo, :name %>
+    <br /><br />
+    Photo: <%= file_field :photo , :file %>
+    <br /><br />
+    <%= submit_tag "Upload Photo", :class => "submit" %>
+    <br />
+<% end %>

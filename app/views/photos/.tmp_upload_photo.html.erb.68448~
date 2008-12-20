@@ -1,0 +1,8 @@
+
+<% form_tag({:action => 'upload_photo'}, :multipart => true) do %>
+    <br />
+    Specify your photo: <%= file_field("photo" , "file" ) %>
+    <br /><br />
+    <%= submit_tag "Upload Photo".t, :class => "submit" %>
+    <br />
+<% end %>

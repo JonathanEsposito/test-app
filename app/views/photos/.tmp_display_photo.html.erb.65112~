@@ -1,0 +1,2 @@
+
+<%= image_tag @photo.path, :alt => @photo.name %>
