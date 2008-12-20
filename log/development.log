@@ -5257,3 +5257,58 @@ Migrating to AlterPhotosAddExtension (20081220143023)
   [4;35;1mSQL (4.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
   [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `users`[0m
   [4;35;1mSQL (4.4ms)[0m   [0mSHOW KEYS FROM `users`[0m
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 15:47:16) [POST]
+  Parameters: {"photo"=>{"name"=>"Zeilboot", "file"=>#<File:/var/folders/Qx/QxdI0NK5GFCHgsfCND4Vq++++TI/-Tmp-/CGI.1785.3>}, "commit"=>"Upload Photo", "authenticity_token"=>"7181cd543bb18585ec41b8348749f59a4c3c7935"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPhoto Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhoto Create (0.2ms)[0m   [0;1mINSERT INTO `photos` (`name`, `thumbnail`, `updated_at`, `extension`, `album_id`, `path`, `created_at`) VALUES('Zeilboot', 0, '2008-12-20 14:47:17', NULL, NULL, 'photos/200812201547163a.JPG', '2008-12-20 14:47:17')[0m
+  [4;35;1mSQL (8.4ms)[0m   [0mCOMMIT[0m
+Rendering photos/upload_photo
+Completed in 39ms (View: 2, DB: 10) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 15:51:03) [POST]
+  Parameters: {"photo"=>{"name"=>"Zeilboot", "file"=>#<File:/var/folders/Qx/QxdI0NK5GFCHgsfCND4Vq++++TI/-Tmp-/CGI.1785.4>}, "commit"=>"Upload Photo", "authenticity_token"=>"7181cd543bb18585ec41b8348749f59a4c3c7935"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPhoto Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhoto Create (0.2ms)[0m   [0;1mINSERT INTO `photos` (`name`, `thumbnail`, `updated_at`, `extension`, `album_id`, `path`, `created_at`) VALUES('Zeilboot', 0, '2008-12-20 14:51:03', NULL, NULL, 'photos/20081220155103cb.JPG', '2008-12-20 14:51:03')[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mCOMMIT[0m
+Rendering photos/upload_photo
+Completed in 35ms (View: 2, DB: 7) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#display_photo (for 127.0.0.1 at 2008-12-20 15:51:06) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPhoto Load (0.3ms)[0m   [0;1mSELECT * FROM `photos` ORDER BY photos.id DESC LIMIT 1[0m
+Rendering photos/display_photo
+  [4;35;1mPhoto Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/photos/display_photo]
+  [4;36;1mPhoto Load (0.3ms)[0m   [0;1mSELECT * FROM `photos` ORDER BY photos.id DESC LIMIT 1[0m
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 15:55:39) [POST]
+  Parameters: {"photo"=>{"name"=>"Zeilboot", "file"=>#<File:/var/folders/Qx/QxdI0NK5GFCHgsfCND4Vq++++TI/-Tmp-/CGI.2124.2>}, "commit"=>"Upload Photo", "authenticity_token"=>"7181cd543bb18585ec41b8348749f59a4c3c7935"}
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPhoto Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhoto Create (0.2ms)[0m   [0;1mINSERT INTO `photos` (`name`, `thumbnail`, `updated_at`, `extension`, `album_id`, `path`, `created_at`) VALUES('Zeilboot', 0, '2008-12-20 14:55:39', NULL, NULL, 'photos/2008122015553994.JPG', '2008-12-20 14:55:39')[0m
+  [4;35;1mSQL (15.1ms)[0m   [0mCOMMIT[0m
+Rendering photos/upload_photo
+Completed in 48ms (View: 3, DB: 18) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#display_photo (for 127.0.0.1 at 2008-12-20 15:55:43) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPhoto Load (0.2ms)[0m   [0;1mSELECT * FROM `photos` ORDER BY photos.id DESC LIMIT 1[0m
+Rendering photos/display_photo
+  [4;35;1mPhoto Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/photos/display_photo]
