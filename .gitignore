@@ -1,3 +1,4 @@
+.tmp_*
 .loadpath
 .DS_Store
 public/images/photos/*
