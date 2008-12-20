@@ -3,6 +3,6 @@
 
 <%= form.text_field :title, :size => 20, :maxlength => 20 %>
 <br /><br />
-<%= submit_tag "Add Album", :class => "submit" %>
+<%= submit_tag "Upload Photo", :class => "submit" %>
 
 <% end %>
