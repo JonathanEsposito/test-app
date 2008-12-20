@@ -1,0 +1,154 @@
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 16:54:46) [GET]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAlbum Load (0.7ms)[0m   [0;1mSELECT * FROM `albums` ORDER BY title[0m
+  [4;35;1mPhoto Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+Rendering photos/upload_photo
+Completed in 47ms (View: 6, DB: 4) | 200 OK [http://localhost/photos/upload_photo]
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 16:54:50) [POST]
+  Parameters: {"photo"=>{"name"=>"", "file"=>""}, "authenticity_token"=>"c6105da4dbee26f9f1e16903d14a30583b35fef7", "add_album"=>"Add Ablum"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAlbum Load (0.5ms)[0m   [0;1mSELECT * FROM `albums` ORDER BY title[0m
+  [4;35;1mPhoto Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+Redirected to actionadd_albumcontrolleralbum
+Completed in 18ms (DB: 3) | 302 Found [http://localhost/photos/upload_photo]
+
+
+Processing AlbumController#add_album (for 127.0.0.1 at 2008-12-20 16:54:50) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAlbum Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Rendering album/add_album
+Completed in 13ms (View: 4, DB: 2) | 200 OK [http://localhost/album/add_album]
+
+
+Processing AlbumController#add_album (for 127.0.0.1 at 2008-12-20 16:55:10) [POST]
+  Parameters: {"commit"=>"Add Album", "authenticity_token"=>"c6105da4dbee26f9f1e16903d14a30583b35fef7", "album"=>{"title"=>"Test"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbum Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAlbum Create (0.3ms)[0m   [0mINSERT INTO `albums` (`updated_at`, `title`, `parent_id`, `created_at`) VALUES('2008-12-20 15:55:10', 'Test', NULL, '2008-12-20 15:55:10')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to actionupload_photocontrollerphotos
+Completed in 15ms (DB: 4) | 302 Found [http://localhost/album/add_album]
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 16:55:10) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbum Load (0.7ms)[0m   [0mSELECT * FROM `albums` ORDER BY title[0m
+  [4;36;1mPhoto Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+Rendering photos/upload_photo
+  [4;35;1mAlbum Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+
+
+ActionView::TemplateError (undefined method `name' for #<Album:0x24c49b8>) on line #6 of app/views/photos/upload_photo.html.erb:
+3:   <table cellpadding="0" cellspacing="20px" border="0">
+4:   <tr><td>Photo: </td><td colspan="2"><%= form.file_field :file, :size => 20 %></td></tr>
+5:   <tr><td>Name: </td><td colspan="2"><%= form.text_field :name, :size => 20, :maxlength => 20 %></td></tr>
+6:   <tr><td>Album: </td><td><%= form.select :album, options_from_collection_for_select(@albums, :id, :name, @photo.album) %>
+7:                  </td><td><%= submit_tag "Add Ablum", :class => "submit", :name => "add_album" %></td></tr>
+8:   </table>
+9:   <%= submit_tag "Upload Photo", :class => "submit" %>
+
+    vendor/rails/activerecord/lib/active_record/attribute_methods.rb:260:in `method_missing'
+    vendor/rails/actionpack/lib/action_view/helpers/form_options_helper.rb:213:in `send'
+    vendor/rails/actionpack/lib/action_view/helpers/form_options_helper.rb:213:in `options_from_collection_for_select'
+    vendor/rails/actionpack/lib/action_view/helpers/form_options_helper.rb:212:in `map'
+    vendor/rails/actionpack/lib/action_view/helpers/form_options_helper.rb:212:in `options_from_collection_for_select'
+    app/views/photos/upload_photo.html.erb:6
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:313:in `fields_for'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/photos/upload_photo.html.erb:2
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1248:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+    -e:2:in `load'
+    -e:2
+
+Rendered /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (43.2ms)
+Rendered /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (1.0ms)
+Rendering /Users/dotjSBer/Documents/-Application Support/workspace/dotjsber/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PhotosController#upload_photo (for 127.0.0.1 at 2008-12-20 16:57:56) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAlbum Load (1.2ms)[0m   [0;1mSELECT * FROM `albums` ORDER BY title[0m
+  [4;35;1mPhoto Columns (6.2ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+Rendering photos/upload_photo
+  [4;36;1mAlbum Columns (9.2ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Completed in 38ms (View: 17, DB: 8) | 200 OK [http://localhost/photos/upload_photo]
