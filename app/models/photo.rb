@@ -7,17 +7,15 @@ class Photo < ActiveRecord::Base
 
   has_many :tags
 
-
-
   PATH = "public/images/photos/"
 
   def file=(photo)
     unless photo.blank?
       base_name = base_part_of(photo.original_filename)
-      extension = base_name.split('.').last
-      new_path = "#{Time.now.strftime("%Y%m%d%H%M%S")}#{random_hex(2)}.#{extension}"
+      self.extension = base_name.split('.').last
+      new_path = "#{Time.now.strftime("%Y%m%d%H%M%S")}#{random_hex(2)}.#{self.extension}"
       while File.exists? "#{PATH}#{new_path}"
-        new_path = "#{Time.now.strftime("%Y%m%d%H%M%S")}#{random_hex(2)}.#{extension}"
+        new_path = "#{Time.now.strftime("%Y%m%d%H%M%S")}#{random_hex(2)}.#{self.extension}"
       end
       self.path = "photos/#{new_path}"
       new_file = File.new("#{PATH}#{new_path}", "w+")
