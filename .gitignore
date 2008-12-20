@@ -1,3 +1,5 @@
 .loadpath
 .DS_Store
 public/images/photos/*
+log/*.log
+
